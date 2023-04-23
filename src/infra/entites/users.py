@@ -13,11 +13,21 @@ class User(Base):
 
     def gen_hash(self)->None:
         """on the moment then is created a new user also generated a hash"""
-        self.password=hashpw(self.password,gensalt(10)).decode("utf-8")
+        
+        self.password=hashpw(self.password.encode('utf-8'),gensalt(10))
 
     def verify(self,password)->bool:
         """verify the password and return a bool"""
         return checkpw(password,self.password)
+    
+    def __eq__(self,other)->bool:
+        """compare object"""
+
+        if(self.id==other.id and 
+           self.name==other.name and 
+           self.password==other.password):
+            return True
+        return False
         
 
 
