@@ -3,9 +3,9 @@ from sqlalchemy import select,and_
 from src.infra.config  import DBConnectionHanddler
 from src.domain.model import User
 from src.infra.entites import User as UserModel
+from src.data.interfaces import UserRepositoryInterface
 
-
-class User_repository:
+class User_repository(UserRepositoryInterface):
     """ clss to manage user"""
     
     @classmethod

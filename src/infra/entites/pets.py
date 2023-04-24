@@ -18,5 +18,14 @@ class Pets(Base):
     age=Column(Integer())
     user_id=Column(Integer(),ForeignKey("users.id"))
 
+    def __eq__(self,other)->bool:
+        if(self.id==other.id and
+           self.name==other.name and 
+           self.age==other.age and 
+           self.specie==other.specie and
+           self.user_id==other.user_id):
+            return True
+        return False
+
     def __repr__(self) -> str:
         return f'Pet: [name={self.name}, specie={self.specie}, user_id={self.user_id}]'
