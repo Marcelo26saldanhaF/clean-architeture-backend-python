@@ -24,6 +24,7 @@ def test_insert_pet():
         conn.session.execute(text('DELETE FROM pets WHERE ID= :id;'),{'id':new_pet.id})
 
     assert new_pet.__eq__(query_pet)
+    
 
 def test_select_pet():
     pet_id=fake.random_number(digits=3)
@@ -48,3 +49,6 @@ def test_select_pet():
     assert new_pet in pet_select_from_database_by_user_id
     assert new_pet in pet_select_from_database_by_pet_id_and_user_id
 
+    with db_conn as conn:
+        conn.session.execute(text('DELETE FROM pets WHERE ID= :id;'),{'id':pet_id})
+        conn.session.commit()

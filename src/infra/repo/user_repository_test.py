@@ -40,3 +40,7 @@ def test_select_user():
     assert new_user in get_user_by_name
     assert new_user in get_user_by_id_and_name
 
+    with db_conn as conn:
+            conn.session.execute(text("DELETE FROM users WHERE ID= :id;"),{'id':new_user.id})
+            conn.session.commit()
+

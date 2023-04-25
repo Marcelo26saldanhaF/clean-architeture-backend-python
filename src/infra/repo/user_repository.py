@@ -17,7 +17,7 @@ class User_repository(UserRepositoryInterface):
                 new_user.gen_hash()
                 db_conn.session.add(new_user)
                 db_conn.session.commit()
-                return User(id=new_user.id,name=new_user.name)
+                return User(id=new_user.id,name=new_user.name,password=new_user.password)
             except Exception as e:
                 print(e)
                 db_conn.session.rollback()
