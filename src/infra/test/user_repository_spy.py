@@ -15,7 +15,7 @@ class UserRepositorySpy:
         self.insert_user_parms['name']=name
         self.insert_user_parms['password']=password
 
-        return mock_users(name=name,password=password)
+        return mock_users()
     
     def select_user(self,user_id:int=None,name:str=None)->List[User]:
         """spy all the attributes"""
