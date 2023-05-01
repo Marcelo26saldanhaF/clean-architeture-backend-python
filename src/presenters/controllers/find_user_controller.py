@@ -2,14 +2,15 @@ from src.domain.use_cases import FindUserInterface
 from typing import Type
 from src.presenters.helpers import HttpRequest,HttpResponse
 from src.presenters.error import HttpErrors
+from src.main.interface import RouteInterface
 
-class FindUserController:
+class FindUserController(RouteInterface):
     """class to define controller to find_user case"""
 
     def __init__(self,find_user_use_case:Type[FindUserInterface]) -> None:
         self.find_user_use_case=find_user_use_case
 
-    def handle(self,http_request:Type[HttpRequest])->HttpResponse:
+    def route(self,http_request:Type[HttpRequest])->HttpResponse:
         """recieve htt_request end return http_response"""
         
         response=None
