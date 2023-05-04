@@ -1,5 +1,5 @@
 from abc import ABC,abstractmethod
-from src.presenters.helpers import HttpRequest,HttpResponse
+from ...presenters.helpers import HttpRequest,HttpResponse
 from typing import Type
 
 class RouteInterface(ABC):

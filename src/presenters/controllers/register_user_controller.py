@@ -37,7 +37,6 @@ class RegisterUserController(RouteInterface):
                     status_code=http_erro['status_code'],
                     body=http_erro['body']
                 )
-
         else:
             http_erro=HttpErrors.error_400()
             return HttpResponse(

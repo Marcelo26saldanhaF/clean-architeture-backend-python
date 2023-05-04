@@ -9,7 +9,7 @@ class RegisterPetInterface(ABC):
     """Interface to FindÈt use case"""
      
     @abstractclassmethod
-    def registry(cls,name:str,specie:str,user_infromation:Dict[int,str],age:int=None)->Dict[bool,Pet]:
+    def register(cls,name:str,specie:str,user_information:Dict[int,str],age:int=None)->Dict[bool,Pet]:
         """use case"""
         raise Exception("Method must be implented")
     

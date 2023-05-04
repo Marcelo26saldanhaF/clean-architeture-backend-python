@@ -19,7 +19,7 @@ class RegisterPetController(RouteInterface):
 
             if "name" in body_params and "specie" in body_params and "user_information" in body_params:
                 user_information_params=http_request.body['user_information'].keys()
-                if "user_name" in user_information_params or "user_name" in user_information_params:
+                if "user_name" in user_information_params or "user_id" in user_information_params:
 
                     name=http_request.body['name']
                     specie=http_request.body['specie']
@@ -30,7 +30,7 @@ class RegisterPetController(RouteInterface):
                     else:
                         age=None
 
-                    response=self.register_pet_use_case.registry(name=name,specie=specie,user_information=user_information,age=age)
+                    response=self.register_pet_use_case.register(name=name,specie=specie,user_information=user_information,age=age)
 
                 else:
                     response={'Success':False,'Data':None}    

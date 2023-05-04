@@ -1,0 +1,1 @@
+from .api_adapater import flask_adapter
